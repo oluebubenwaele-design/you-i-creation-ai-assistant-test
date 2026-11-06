@@ -55,7 +55,7 @@ async function getProducts() {
   const pageSize = 1000;
   const allRows = [];
   for (let offset = 0; ; offset += pageSize) {
-    const response = await fetch(`${u}/rest/v1/Products?select=id,Name,Price,"Image%20url",Category,Stock,Description&order=created_at.desc&limit=${pageSize}&offset=${offset}`, {
+          const response = await fetch(`${u}/rest/v1/Products?select=id,Name,Price,%22Image%20url%22,Category,Stock,Description&order=created_at.desc&limit=${pageSize}&offset=${offset}`, {
       headers: { ...headers(), Prefer: 'return=representation' }
     });
     if (!response.ok) throw new Error(`Unable to load product catalog (${response.status}).`);
